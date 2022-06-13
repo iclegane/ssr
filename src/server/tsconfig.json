@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../server-dist",
+    "target": "ES2018",
+    "jsx": "react",
+  }
+}
