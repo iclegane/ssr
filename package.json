@@ -13,18 +13,17 @@
   "scripts": {
     "build:client": "webpack --config webpack.config.ts",
     "build:client:ssr": "webpack --config ssr.config.ts",
-
     "start:ssr": "webpack --config ssr.config.ts --watch",
-
     "build:server": "tsc --project ./src/server",
-
     "start:server": "node ./server-dist/src/server/index.js",
-    "start": "npm run start:server && npm run start:ssr"
+    "start": "concurrently --kill-others \"npm run start:server\" \"npm run start:ssr\""
   },
   "dependencies": {
     "@gatsbyjs/webpack-hot-middleware": "github:renrizzolo/webpack-hot-middleware#patch-1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
+    "@types/webpack-node-externals": "^2.5.3",
     "axios": "^0.26.1",
+    "concurrently": "^7.2.1",
     "express": "^4.17.3",
     "react": "18.1.0",
     "react-dom": "18.1.0",
@@ -34,7 +33,6 @@
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "url": "^0.11.0",
-    "@types/webpack-node-externals": "^2.5.3",
     "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {
